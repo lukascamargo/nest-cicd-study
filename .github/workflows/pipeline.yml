@@ -30,14 +30,11 @@ jobs:
 
       - name: Caching NPM Packages and Build
         uses: actions/cache@v3
-        env:
-          cache-name: cache-build
         with:
           path: |
             node_modules
             dist
-          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
-          enableCrossOsArchive: true
+          key: nodebr-cicd-build-files
 
       - name: Install Package-lock Dependencies
         run: npm ci
@@ -67,14 +64,11 @@ jobs:
 
       - name: Getting Cache NPM Packages and Build
         uses: actions/cache@v3
-        env:
-          cache-name: cache-build
         with:
           path: |
             node_modules
             dist
-          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
-          enableCrossOsArchive: true
+          key: nodebr-cicd-build-files
 
       - name: Running tests
         run: npm test
