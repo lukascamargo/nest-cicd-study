@@ -36,8 +36,9 @@ jobs:
 
       - uses: actions/cache@v3
         with:
-          path: /cache
+          path: ~/.npm/caches
           key: build-files
+          enableCrossOsArchive: true
 
   test:
 
@@ -59,8 +60,9 @@ jobs:
 
       - uses: actions/cache@v3
         with:
-          path: /cache
+          path: ~/.npm/caches
           key: build-files
+          enableCrossOsArchive: true
 
       - name: Running tests
         run: npm test
