@@ -34,7 +34,7 @@ jobs:
           path: |
             node_modules
             dist
-          key: build-files
+          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
           enableCrossOsArchive: true
 
       - name: Install Package-lock Dependencies
@@ -69,7 +69,7 @@ jobs:
           path: |
             node_modules
             dist
-          key: build-files
+          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
           enableCrossOsArchive: true
 
       - name: Running tests
