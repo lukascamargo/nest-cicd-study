@@ -30,6 +30,8 @@ jobs:
 
       - name: Caching NPM Packages and Build
         uses: actions/cache@v3
+        env:
+          cache-name: cache-build
         with:
           path: |
             node_modules
@@ -65,6 +67,8 @@ jobs:
 
       - name: Getting Cache NPM Packages and Build
         uses: actions/cache@v3
+        env:
+          cache-name: cache-build
         with:
           path: |
             node_modules
