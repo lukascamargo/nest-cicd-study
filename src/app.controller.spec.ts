@@ -29,7 +29,7 @@ describe('AppController', () => {
       const A = 5;
       const B = 10;
       const C = 0;
-      expect(A * B * C).toBe(0);
+      expect(A * B * C).toBe(50);
     });
   });
 });
