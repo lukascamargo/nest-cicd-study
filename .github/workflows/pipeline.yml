@@ -29,10 +29,10 @@ jobs:
           cache: 'npm'
 
       - name: Install Package-lock Dependencies
-        uses: npm ci
+        run: npm ci
 
       - name: Building the application
-        uses: npm run build
+        run: npm run build
 
       - name: Running tests
-        uses: npm test
+        run: npm test
