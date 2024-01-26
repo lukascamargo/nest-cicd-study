@@ -28,18 +28,22 @@ jobs:
           node-version: ${{ matrix.node-version }}
           cache: 'npm'
 
+      - name: Caching NPM Packages and Build
+        uses: actions/cache@v3
+        with:
+          path: |
+            node_modules
+            dist
+          key: build-files
+          enableCrossOsArchive: true
+
       - name: Install Package-lock Dependencies
         run: npm ci
 
       - name: Building the application
         run: npm run build
 
-      - uses: actions/cache@v3
-        with:
-          path: |
-              ~/.npm/caches
-          key: build-files
-          enableCrossOsArchive: true
+
 
   test:
 
@@ -59,10 +63,12 @@ jobs:
           node-version: ${{ matrix.node-version }}
           cache: 'npm'
 
-      - uses: actions/cache@v3
+      - name: Getting Cache NPM Packages and Build
+        uses: actions/cache@v3
         with:
           path: |
-            ~/.npm/caches
+            node_modules
+            dist
           key: build-files
           enableCrossOsArchive: true
 
