@@ -36,7 +36,8 @@ jobs:
 
       - uses: actions/cache@v3
         with:
-          path: ~/.npm/caches
+          path: |
+              ~/.npm/caches
           key: build-files
           enableCrossOsArchive: true
 
@@ -60,7 +61,8 @@ jobs:
 
       - uses: actions/cache@v3
         with:
-          path: ~/.npm/caches
+          path: |
+            ~/.npm/caches
           key: build-files
           enableCrossOsArchive: true
 
